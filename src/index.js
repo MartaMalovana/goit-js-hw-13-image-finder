@@ -1,16 +1,30 @@
 import './sass/main.scss';
 import 'material-design-icons';
 import { debounce } from 'debounce';
+import getImages from './apiService';
+import cardRender from './image_card.hbs';
 
 const inputValueRef = document.querySelector('[name="query"]');
-const myKey = '24296809-9b93a2a7fdd6c9a326bbfa052';
-let pageNumber = 1;
+const cardList = document.querySelector('.gallery');
 
-const searchImage = function () {
-    const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${inputValueRef.value}&page=${pageNumber}&per_page=12&key=${myKey}`;
-    fetch(url).then(result => {
-      console.log(result.json(''));
-    });
+const createCard = function (card) {
+  // cardList.insertAdjacentHTML('beforeend', cardRender(card.hits[0]));
+  console.log(card);
+} 
+
+async function searchImage () {
+   const imagesArray = await function () {
+    const a= getImages(inputValueRef.value);
+     return console.log(a);
+   };
+
+   const makeCard = await function (images) {
+     return createCard(images);
+   };
+
+   imagesArray();
+   makeCard(imagesArray);
+
 };
 
 inputValueRef.addEventListener('input', debounce(searchImage, 1000));
