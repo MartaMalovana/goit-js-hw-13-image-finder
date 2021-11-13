@@ -2,15 +2,25 @@ import './sass/main.scss';
 import 'material-design-icons';
 import { debounce } from 'debounce';
 import getImages from './apiService';
+import * as basicLightbox from 'basiclightbox';
 
 const inputValueRef = document.querySelector('[name="query"]');
 const button = document.querySelector('.button');
+const cardList = document.querySelector('.gallery');
 
-const searchImage = function () {
+const onSearchImage = function () {
   getImages(inputValueRef.value);
-  button.style.display = 'block';
 };
 
-inputValueRef.addEventListener('input', debounce(searchImage, 1000));
+// const onModalOpen = function (elem) {
+  
+//   if(!elem.target.classList.contains('photo')) {
+//     return;
+//   } else {
+//     cardList.insertAdjacentHTML('beforebegin', `<div class="big-photo" style="background-image: url(${elem.target.href});"></div>`);
+//   };
+// };
 
-button.addEventListener('click', searchImage);
+button.addEventListener('click', onSearchImage);
+
+// cardList.addEventListener('click', onModalOpen);
