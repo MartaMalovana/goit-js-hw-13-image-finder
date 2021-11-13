@@ -12,6 +12,12 @@ const onSearchImage = function () {
   getImages(inputValueRef.value);
 };
 
+
+const onNewSearch = function () {
+  button.textContent = 'Шукати';
+  cardList.innerHTML = '';
+  
+}
 // const onModalOpen = function (elem) {
   
 //   if(!elem.target.classList.contains('photo')) {
@@ -24,3 +30,5 @@ const onSearchImage = function () {
 button.addEventListener('click', onSearchImage);
 
 // cardList.addEventListener('click', onModalOpen);
+
+inputValueRef.addEventListener('input', debounce(onNewSearch, 500));
