@@ -15,6 +15,6 @@ export default function getImages (value) {
     button.textContent = 'Хочу ще картинок';
 
     const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${value}&page=${pageNumber}&per_page=12&key=${myKey}`;
-    return fetch(url).then(result => result.json('')).then(array => makeCard(array.hits));
+    return fetch(url).then(result => result.json('')).then(array => makeCard(array.hits)).catch(eror => console.log('ERROR'));
 } 
 
