@@ -13,17 +13,21 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
   </head>
-  <body">
-    <form class="search-form" id="search-form">
-      <input
-        type="text"
-        name="query"
-        autocomplete="off"
-        placeholder="Search images..."
-      />
-    </form>
-    <ul class="gallery" style="list-style: none; display: flex;">
-    </ul>
+  <body>
+    <div class="container">
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="query"
+          autocomplete="off"
+          placeholder="Що знайти?"
+          class="input"
+        />
+      </form>
+      <ul class="gallery">
+      </ul>
+      <button type="button" class="button">Хочу ще картинок</button>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>
